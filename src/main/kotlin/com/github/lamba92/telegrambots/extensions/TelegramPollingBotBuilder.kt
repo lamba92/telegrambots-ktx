@@ -7,7 +7,8 @@ import org.kodein.di.KodeinAware
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
 import org.telegram.telegrambots.meta.api.objects.Update
 
-class TelegramBotBuilder {
+@TelegrambotsDSL
+class TelegramPollingBotBuilder {
 
     var botApiToken: String = ""
     var botUsernameName: String = ""
@@ -15,10 +16,12 @@ class TelegramBotBuilder {
 
     private var handlersBuilder: (MessageHandlersBuilder.() -> Unit)? = null
 
+    @TelegrambotsDSL
     fun handlers(handler: MessageHandlersBuilder.() -> Unit) {
         handlersBuilder = handler
     }
 
+    @TelegrambotsDSL
     fun kodein(builder: Kodein.MainBuilder.() -> Unit) {
         kodeinBuilder = builder
     }
@@ -30,7 +33,7 @@ class TelegramBotBuilder {
         }
 
         val handlers = MessageHandlersBuilder().apply {
-            handlersBuilder?.invoke(this)
+            this@TelegramPollingBotBuilder.handlersBuilder?.invoke(this)
         }
 
         override fun getBotUsername() = botUsernameName
@@ -42,7 +45,7 @@ class TelegramBotBuilder {
                 update.inlineQuery?.let {
                     handlers.inlineQueriesHandler
                         ?.inlineQueryHandler
-                        ?.invoke(InlineQueryReceivedHandler(it.id, toExecutor(), kodein), it)
+                        ?.invoke(InlineQueryReceivedHandler(it.id, asExecutor(), kodein), it)
                 }
             }
         }

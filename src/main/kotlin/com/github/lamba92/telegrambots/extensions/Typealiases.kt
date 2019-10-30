@@ -6,4 +6,4 @@ import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery
 
 typealias InlineQueryInterceptor = suspend InlineQueryReceivedHandler.(InlineQuery) -> Unit
 typealias InlineQuerySelectionInterceptor = suspend InlineQuerySelectionHandler.(ChosenInlineQuery) -> Unit
-typealias MessageExecutor = (AnswerInlineQuery) -> Boolean
+typealias MessageExecutor = suspend (AnswerInlineQuery) -> Boolean

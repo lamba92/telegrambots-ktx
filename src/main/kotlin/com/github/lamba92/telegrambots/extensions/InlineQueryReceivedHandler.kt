@@ -5,13 +5,14 @@ import org.kodein.di.KodeinAware
 import org.telegram.telegrambots.meta.api.methods.AnswerInlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.result.InlineQueryResult
 
+@TelegrambotsDSL
 class InlineQueryReceivedHandler(
     private val defaultQueryId: String,
     private val executor: MessageExecutor,
     override val kodein: Kodein
 ) : KodeinAware {
 
-    fun respond(
+    suspend fun respond(
         response: List<InlineQueryResult>,
         customSetup: InlineQueryResultSettings.() -> Unit = {}
     ) = answer {
@@ -22,7 +23,7 @@ class InlineQueryReceivedHandler(
         results = response
     }
 
-    private fun answer(action: AnswerInlineQuery.() -> Unit) =
+    private suspend fun answer(action: AnswerInlineQuery.() -> Unit) =
         executor(AnswerInlineQuery().apply(action))
 
 }

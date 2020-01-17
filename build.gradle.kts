@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.3.60-eap-23"
+    kotlin("jvm") version "1.3.61"
 }
 
 group = "com.github.lamba92"
@@ -12,13 +12,15 @@ repositories {
 }
 
 dependencies {
+
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core", "1.3.2")
 
     api(kotlin("reflect"))
-    api("org.telegram", "telegrambots", "4.4.0.1")
-    api("org.kodein.di", "kodein-di-core-jvm", "6.4.1")
-    api("org.kodein.di", "kodein-di-erased-jvm", "6.4.1")
+    implementation("org.telegram", "telegrambots", "4.4.0.1")
+    implementation("org.kodein.di", "kodein-di-core-jvm", "6.4.1")
+    implementation("org.kodein.di", "kodein-di-erased-jvm", "6.4.1")
+
 }
 
 tasks {

@@ -3,11 +3,20 @@ package com.github.lamba92.telegrambots.extensions
 @TelegrambotsDSL
 class MessageHandlersBuilder {
 
-    internal var inlineQueriesHandler: InlineQueriesHandler? = null
+    private var inlineQueriesHandler: InlineQueryHandler = {}
+    private var sendMessageHandler: SendMessageHandler = {}
 
     @TelegrambotsDSL
-    fun inlineQueries(handler: InlineQueriesHandler.() -> Unit) {
-        inlineQueriesHandler = InlineQueriesHandler().apply(handler)
+    fun inlineQueries(handler: InlineQueryHandler) {
+        inlineQueriesHandler = handler
     }
+
+    @TelegrambotsDSL
+    fun messages(handler: SendMessageHandler) {
+        sendMessageHandler = handler
+    }
+
+    internal fun build() =
+        MessageHandlers(inlineQueriesHandler, sendMessageHandler)
 
 }

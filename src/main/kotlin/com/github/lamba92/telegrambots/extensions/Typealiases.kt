@@ -1,9 +1,9 @@
 package com.github.lamba92.telegrambots.extensions
 
 import org.telegram.telegrambots.meta.api.methods.AnswerInlineQuery
-import org.telegram.telegrambots.meta.api.objects.inlinequery.ChosenInlineQuery
-import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 
-typealias InlineQueryInterceptor = suspend InlineQueryReceivedHandler.(InlineQuery) -> Unit
-typealias InlineQuerySelectionInterceptor = suspend InlineQuerySelectionHandler.(ChosenInlineQuery) -> Unit
-typealias MessageExecutor = suspend (AnswerInlineQuery) -> Boolean
+typealias InlineQueryHandler = suspend InlineQueryContext.() -> Unit
+typealias SendMessageHandler = suspend SendMessageContext.() -> Unit
+typealias InlineQueryExecutor = suspend (AnswerInlineQuery) -> Unit
+typealias SendMessageExecutor = suspend (SendMessage) -> Unit

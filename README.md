@@ -1,4 +1,5 @@
-# TelegramBots KTX
+# TelegramBots KTX 
+[![Build Status](https://travis-ci.org/lamba92/telegrambots-ktx.svg?branch=master)](https://travis-ci.org/lamba92/telegrambots-ktx) [ ![Download](https://api.bintray.com/packages/lamba92/com.github.lamba92/telegrambots-ktx/images/download.svg) ](https://bintray.com/lamba92/com.github.lamba92/telegrambots-ktx/_latestVersion)
 
 `TelegramBots KTX` is a DSL wrapper for the [TelegramBots](https://github.com/rubenlagus/TelegramBots) library.
 
@@ -68,4 +69,13 @@ PRO TIP 1: both `InlineQueryContext` and `MessageContext` contains all that is n
 
 PRO TIP 2: there are also commodity DSLs to build markdown using `buildMarkdown` and an inline message content using `buildInlineArticle`. Try them out!  
 
-# Installation
+# Installation [ ![Download](https://api.bintray.com/packages/lamba92/com.github.lamba92/telegrambots-ktx/images/download.svg) ](https://bintray.com/lamba92/com.github.lamba92/telegrambots-ktx/_latestVersion)
+```kotlin
+repositories {
+    jcenter()
+}
+...
+dependencies {
+    implementation("com.github.lamba92", "ktor-spa", "{latest_version}")
+}
+```

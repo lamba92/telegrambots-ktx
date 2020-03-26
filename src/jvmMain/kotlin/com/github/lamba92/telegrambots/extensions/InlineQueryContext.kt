@@ -6,9 +6,9 @@ import org.telegram.telegrambots.meta.api.methods.AnswerInlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.result.InlineQueryResult
 
-@TelegrambotsDSL
+@TelegramBotsDSL
 class InlineQueryContext(
-    val inlineQuery: InlineQuery,
+    val query: InlineQuery,
     private val executor: InlineQueryExecutor,
     override val kodein: Kodein
 ) : KodeinAware {
@@ -17,8 +17,8 @@ class InlineQueryContext(
         response: List<InlineQueryResult>,
         customSettings: InlineQueryResultSettings.() -> Unit = {}
     ) = respond {
-        val settings =
-            InlineQueryResultSettings(inlineQuery.id).apply(customSettings)
+        val settings = InlineQueryResultSettings(query.id)
+            .apply(customSettings)
         isPersonal = settings.isPersonal
         cacheTime = settings.cacheTime
         inlineQueryId = settings.inlineQueryId

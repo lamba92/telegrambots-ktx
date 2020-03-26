@@ -5,7 +5,7 @@ import org.kodein.di.KodeinAware
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Message
 
-class SendMessageContext(
+class MessageContext(
     val message: Message,
     private val coroutineExecutor: SendMessageExecutor,
     override val kodein: Kodein

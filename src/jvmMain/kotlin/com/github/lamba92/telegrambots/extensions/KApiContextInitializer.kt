@@ -9,5 +9,7 @@ object KApiContextInitializer : TelegramBotsApi() {
         ApiContextInitializer.init()
     }
 
-    operator fun <T> invoke(action: KApiContextInitializer.() -> T) = let(action)
+    operator fun <T> invoke(action: KApiContextInitializer.() -> T) =
+        this.action()
+
 }

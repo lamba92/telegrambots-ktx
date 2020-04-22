@@ -1,8 +1,6 @@
 @file:Suppress("UNUSED_VARIABLE")
 
-import com.github.lamba92.gradle.utils.TRAVIS_TAG
-import com.github.lamba92.gradle.utils.implementation
-import com.github.lamba92.gradle.utils.prepareForPublication
+import com.github.lamba92.gradle.utils.*
 
 buildscript {
     repositories {
@@ -45,17 +43,17 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", "1.3.5-1.4-M1")
-                implementation("org.kodein.di", "kodein-di-core", "6.5.4")
-                implementation("org.kodein.di", "kodein-di-erased-jvm", "6.5.4")
+                implementation(kotlinx("coroutines-core-common", "1.3.5-1.4-M1"))
+                api(kodein("core", "6.5.5"))
+                api(kodein("erased-jvm", "6.5.5"))
             }
         }
 
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("reflect"))
-                implementation("org.telegram", "telegrambots", "4.6")
-                implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core", "1.3.5-1.4-M1")
+                api("org.telegram", "telegrambots", "4.6")
+                api(kotlinx("coroutines-core", "1.3.5-1.4-M1"))
             }
         }
     }

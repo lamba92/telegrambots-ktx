@@ -12,4 +12,7 @@ object KApiContextInitializer : TelegramBotsApi() {
     operator fun <T> invoke(action: KApiContextInitializer.() -> T) =
         this.action()
 
+    fun registerPollingBot(action: TelegramLongPollingBotBuilder.() -> Unit) =
+        registerBot(buildPollingBot(action))!!
+
 }

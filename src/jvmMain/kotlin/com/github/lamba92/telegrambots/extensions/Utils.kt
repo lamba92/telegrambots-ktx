@@ -4,6 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.telegram.telegrambots.bots.DefaultAbsSender
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
+import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.inputmessagecontent.InputMessageContent
 import org.telegram.telegrambots.meta.api.objects.inlinequery.result.InlineQueryResultArticle
 
@@ -66,8 +67,5 @@ val bot = buildPollingBot {
 
 }
 
-fun main() {
-    KApiContextInitializer {
-        registerBot(bot)
-    }
-}
+val InlineQuery.text
+    get() = query!!

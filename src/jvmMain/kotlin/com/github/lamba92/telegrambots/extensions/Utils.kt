@@ -40,32 +40,5 @@ internal val DefaultAbsSender.coroutineSendMessageExecutor: SendMessageExecutor
         withContext(Dispatchers.IO) { execute(it) }
     }
 
-val bot = buildPollingBot {
-
-    kodein {
-
-    }
-
-    underlyingBot {
-        options {
-
-        }
-    }
-
-    handlers {
-        inlineQueries {
-            respond(emptyList()) {
-
-            }
-        }
-        messages {
-            respond {
-
-            }
-        }
-    }
-
-}
-
 val InlineQuery.text
     get() = query!!

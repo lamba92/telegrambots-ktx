@@ -5,8 +5,10 @@ import org.kodein.di.KodeinAware
 import org.telegram.telegrambots.meta.api.methods.AnswerInlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery
 import org.telegram.telegrambots.meta.api.objects.inlinequery.result.InlineQueryResult
+import kotlin.time.ExperimentalTime
 
 @TelegramBotsDSL
+@OptIn(ExperimentalTime::class)
 class InlineQueryContext(
     val query: InlineQuery,
     private val executor: InlineQueryExecutor,
@@ -20,7 +22,7 @@ class InlineQueryContext(
         val settings = InlineQueryResultSettings(query.id)
             .apply(customSettings)
         isPersonal = settings.isPersonal
-        cacheTime = settings.cacheTime
+        cacheTime = settings.cacheTime.inSeconds.toInt()
         inlineQueryId = settings.inlineQueryId
         results = response
     }

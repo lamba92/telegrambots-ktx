@@ -72,10 +72,10 @@ PRO TIP 2: there are also commodity DSLs to build markdown using `buildMarkdown`
 # Installation [ ![Download](https://api.bintray.com/packages/lamba92/com.github.lamba92/telegrambots-ktx/images/download.svg) ](https://bintray.com/lamba92/com.github.lamba92/telegrambots-ktx/_latestVersion)
 ```kotlin
 repositories {
-    jcenter()
+    maven("https://dl.bintray.com/lamba92/com.github.lamba92")
 }
 ...
 dependencies {
-    implementation("com.github.lamba92", "ktor-spa", "{latest_version}")
+    implementation("com.github.lamba92", "telegrambots-ktx", "{latest_version}")
 }
 ```

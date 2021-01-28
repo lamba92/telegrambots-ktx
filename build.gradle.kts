@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    kotlin("multiplatform") version "1.4-M1"
+    kotlin("multiplatform") version "1.4.21"
     id("com.jfrog.bintray") version "1.8.4"
     `maven-publish`
 }
@@ -49,8 +49,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
-                implementation(kotlinx("coroutines-core-common", "1.3.5-1.4-M1"))
+                implementation(kotlinx("coroutines-core", "1.4.2"))
                 api(kodein("core", "6.5.5"))
                 api(kodein("erased-jvm", "6.5.5"))
             }
@@ -60,7 +59,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("reflect"))
                 api("org.telegram", "telegrambots", "4.6")
-                api(kotlinx("coroutines-core", "1.3.5-1.4-M1"))
             }
         }
     }

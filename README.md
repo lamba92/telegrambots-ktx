@@ -1,4 +1,7 @@
 # TelegramBots KTX 
+
+DEPRECATED! This project is deprecated in favour of [KOTLINGRAM](https://github.com/lamba92/kotlingram/)!
+
 [![Build Status](https://travis-ci.org/lamba92/telegrambots-ktx.svg?branch=master)](https://travis-ci.org/lamba92/telegrambots-ktx) [ ![Download](https://api.bintray.com/packages/lamba92/com.github.lamba92/telegrambots-ktx/images/download.svg) ](https://bintray.com/lamba92/com.github.lamba92/telegrambots-ktx/_latestVersion)
 
 `TelegramBots KTX` is a DSL wrapper for the [TelegramBots](https://github.com/rubenlagus/TelegramBots) library.
